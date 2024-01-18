@@ -82,13 +82,13 @@ const Home = () => {
             UTC Time ({timezone}): {utcDateTimes[index].toFormat('HH:mm')}
           </p>
           <input
-          type="range"
-          min={DateTime.utc().startOf('day')} // One day before current time
-          max={DateTime.utc().endOf('day')} // One day after current time
-          step={60000} // 1 minute step
-          value={now}
-          onChange={handleSliderChange}
-        />
+  type="range"
+  min={DateTime.utc().startOf('day').toMillis()} // Convert to milliseconds
+  max={DateTime.utc().endOf('day').toMillis()} // Convert to milliseconds
+  step={60000} // 1 minute step
+  value={now}
+  onChange={handleSliderChange}
+/>
           </>
         ))}
       </div>
